@@ -7,6 +7,7 @@
       "content": "嗨！感谢你对「云梦」的喜爱。为了更好地聆听大家的声音，我们组建了专属的用户交流群！欢迎来群里分享你的使用体验、提出新建议、结交新朋友，快来加入交流群吧～\nhttps://raw.githubusercontent.com/S-Trespassing/Yunmeng_Release/refs/heads/main/qrcode_1772118425758.jpg",
       "url": "",
       "source": "云梦通知",
+      "pinned": true,
       "published_at": "2026-02-26T13:43:00.344Z"
     },
     {
@@ -15,6 +16,7 @@
       "content": "如标题",
       "url": "",
       "source": "云梦官方",
+      "pinned": false,
       "published_at": "2026-02-15T14:30:00Z"
     }
   ]
