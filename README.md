@@ -1,4 +1,4 @@
-# 云梦（Rain）
+# 云梦（Yunmeng）
 
 面向在校生的校园教务与效率助手。课表、成绩、考试、培养方案、空教室、论坛、选课提醒和常用工具，都集中在一个更统一的 Android 应用里。
 
@@ -80,35 +80,6 @@
 - OkHttp + Jsoup
 - DataStore + WorkManager
 - Media3、ML Kit、PDFBox、Apache POI、Tencent X5
-
-## 项目结构
-
-```text
-app/
-├── src/main/java/com/love/rain/
-│   ├── data/      # 网络、解析、仓储、监控任务
-│   ├── ui/        # Compose 页面、导航、主题、播放器
-│   ├── widget/    # 桌面小组件
-│   └── MainActivity.kt
-├── src/main/res/  # 资源与清单配置
-└── src/test/java/ # JVM 单元测试
-```
-
-## 本地构建
-
-```bash
-./gradlew :app:assembleDebug
-./gradlew :app:testDebugUnitTest
-./gradlew :app:lintDebug
-```
-
-Windows 下可以使用：
-
-```powershell
-.\gradlew :app:assembleDebug
-.\gradlew :app:testDebugUnitTest
-.\gradlew :app:lintDebug
-```
 
 ## 使用说明
 
