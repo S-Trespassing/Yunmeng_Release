@@ -1,126 +1,125 @@
-# notice-json-editor
+# 云梦（Rain）
 
-一个面向 `notice.json` 的可视化编辑器，适合维护云梦这类
-应用的公告数据。
+面向在校生的校园教务与效率助手。课表、成绩、考试、培养方案、空教室、论坛、选课提醒和常用工具，都集中在一个更统一的 Android 应用里。
 
-它是纯前端静态工具，不需要构建，不依赖后端。打开
-`index.html` 就能导入、编辑、预览并导出通知 JSON。
+`Android 8.0+` `Kotlin` `Jetpack Compose` `校园教务辅助`
 
-## 功能特点
+## 项目简介
 
-- 可视化编辑通知列表，避免手改 JSON 时漏逗号、写错字段
-- 支持新增、删除、复制、上移、下移单条通知
-- 支持按时间倒序排序，置顶通知优先
-- 支持自动补全缺失 ID
-- 支持直接复制 JSON 或下载 `notice.json`
-- 支持读取同目录 `notice.json`，并保存回同目录文件
-- 支持内容预览，能识别图片链接、Markdown 图片、`<img src>`
-- 自动缓存当前编辑内容，刷新页面后不容易丢数据
+云梦主要解决两类问题：
 
-## 适用场景
+- 把常用教务入口集中起来，减少来回切网页和重复登录的成本。
+- 把监控、提醒、桌面组件和工具页补齐，让应用不只是“能查”，也能长期常用。
 
-- 维护应用内公告、通知、活动信息
-- 需要频繁调整 `notice.json`，但不想手写 JSON
-- 希望让非技术同学也能安全修改通知内容
+界面整体采用樱花主题，保留了比较明显的视觉风格，同时尽量把功能路径做得直接一些，避免只好看不好用。
 
-## 支持的数据格式
+## 主要功能
 
-支持以下两种输入结构：
+### 教务核心
 
-```json
-{
-  "version": 1,
-  "notices": [
-    {
-      "id": "2026-02-26-001",
-      "title": "示例标题",
-      "content": "示例内容",
-      "url": "https://example.com",
-      "source": "云梦通知",
-      "pinned": true,
-      "published_at": "2026-02-26T13:43:00.344Z"
-    }
-  ]
-}
-```
+- 登录与会话保持
+- 我的课表、学期课表、自定义课程
+- 我的成绩、GPA 计算器、成绩可视化
+- 考试安排、选课结果、培养方案
+- 空教室查询、预选课查询、选课推荐、排名查询
+- 校历查看，支持缩放和拖动
 
-或直接传入通知数组：
+### 监控与提醒
 
-```json
-[
-  {
-    "id": "2026-02-26-001",
-    "title": "示例标题",
-    "content": "示例内容"
-  }
-]
-```
+- 成绩监控
+- 官网公告监控
+- 选课捡漏监控
+- 消息中心
+- 应用更新提示
 
-## 字段兼容规则
+### 扩展工具
 
-- 链接字段兼容 `url` 和 `link`，导出时统一写成 `url`
-- 时间字段兼容 `published_at`、`date`、`time`
-- 置顶字段兼容 `pinned`、`is_pinned`、`isPinned`、`top`、
-  `sticky`、`pin`
-- `source` 不在编辑卡片中单独展示，导出时会保留原值；缺失时
-  默认写入 `云梦通知`
+- 一键评教
+- 校园论坛
+- 公文处理
+- 扫描 PDF 去水印
+- 音乐模块
+- 常用网页工具入口
 
-## 快速开始
+## 界面预览
 
-1. 克隆或下载本仓库
-2. 使用现代浏览器打开 `index.html`
-3. 导入现有 `notice.json`，或点击“读取同目录 notice.json”
-4. 编辑通知内容
-5. 通过“复制 JSON”“下载 notice.json”或“保存到 notice.json”
-   导出结果
+### 登录与主界面
 
-## 使用建议
+<p align="center">
+  <img src="./图/登录.jpg" alt="云梦登录页" width="23%" />
+  <img src="./图/首页.jpg" alt="云梦首页" width="23%" />
+  <img src="./图/工具.jpg" alt="云梦工具页" width="23%" />
+  <img src="./图/设置.jpg" alt="云梦设置页" width="23%" />
+</p>
 
-- 推荐使用最新版 Chrome 或 Edge，目录读写体验更完整
-- 第一次点击“保存到 notice.json”时，浏览器会请求目录授权
-- 如果直接从本地文件打开后遇到权限限制，建议用本地静态服务器
-  访问，例如：
+### 音乐模块
 
-```bash
-python -m http.server 8080
-```
+<p align="center">
+  <img src="./图/音乐1.jpg" alt="云梦音乐播放页 1" width="31%" />
+  <img src="./图/音乐2.jpg" alt="云梦音乐播放页 2" width="31%" />
+  <img src="./图/音乐3.jpg" alt="云梦音乐播放页 3" width="31%" />
+</p>
 
-然后访问：
+<p align="center">
+  <img src="./图/音乐4.jpg" alt="云梦音乐首页" width="48%" />
+  <img src="./图/音乐5.jpg" alt="云梦音乐评论页" width="48%" />
+</p>
+
+## 体验特点
+
+- 首页用卡片收纳高频入口，教务主线比较集中。
+- 对成绩、公告和选课这类会变化的信息，提供后台监控能力。
+- 樱花主题、半透明卡片和迷你播放器让界面辨识度更高。
+- 提供桌面组件，包括今日课程、考试倒计时和快捷入口。
+
+## 技术栈
+
+- Kotlin + Jetpack Compose
+- Navigation Compose + Material 3
+- Hilt + KSP
+- OkHttp + Jsoup
+- DataStore + WorkManager
+- Media3、ML Kit、PDFBox、Apache POI、Tencent X5
+
+## 项目结构
 
 ```text
-http://localhost:8080/
+app/
+├── src/main/java/com/love/rain/
+│   ├── data/      # 网络、解析、仓储、监控任务
+│   ├── ui/        # Compose 页面、导航、主题、播放器
+│   ├── widget/    # 桌面小组件
+│   └── MainActivity.kt
+├── src/main/res/  # 资源与清单配置
+└── src/test/java/ # JVM 单元测试
 ```
 
-## 编辑器能力说明
+## 本地构建
 
-- `title` 为空时，App 侧通常会跳过该条通知
-- `published_at` 推荐使用 ISO 8601，例如
-  `2026-02-15T14:30:00Z`
-- `pinned` 为布尔值，置顶通知会优先显示
-- `content` 支持正文文本、图片链接、Markdown 图片和 HTML
-  图片标签
-- 页面右侧会实时生成导出 JSON，方便边改边确认结果
+```bash
+./gradlew :app:assembleDebug
+./gradlew :app:testDebugUnitTest
+./gradlew :app:lintDebug
+```
 
-## 仓库文件说明
+Windows 下可以使用：
 
-- `index.html`：主编辑器页面
-- `notice.json`：示例通知数据
-- `auth.py`：独立的配置加密小脚本，会将结果写入 `config.txt`
-- `config.txt`：加密结果输出文件
+```powershell
+.\gradlew :app:assembleDebug
+.\gradlew :app:testDebugUnitTest
+.\gradlew :app:lintDebug
+```
 
-## 技术实现
+## 使用说明
 
-- 原生 HTML、CSS、JavaScript
-- 使用 `localStorage` 保存当前编辑状态
-- 使用 `IndexedDB` 记住目录授权句柄
-- 使用 File System Access API 读写同目录 `notice.json`
+1. 打开应用并完成登录。
+2. 从首页进入课表、成绩、考试、培养方案等常用功能。
+3. 需要提醒时，可以在设置页开启成绩监控、公告监控和选课监控。
+4. 工具页提供音乐、公文处理、扫描去水印等扩展能力。
 
-## 后续可继续完善
+## 项目说明
 
-如果你打算把仓库长期放在 GitHub 展示，后面还可以继续补：
-
-- 1 张编辑器整体截图
-- 1 张单条通知编辑卡片截图
-- 1 个“导入前 / 导出后”的示例说明
-
-这样首页展示会更完整，也更方便别人一眼看懂这个工具在做什么。
+- 最低支持 Android 8.0（API 26）。
+- 当前版本信息以应用内显示为准。
+- 项目目前以个人维护和功能迭代为主，README 主要用于展示与说明。
+- 涉及教务、评教和监控能力时，请以学校规则和账号安全为前提使用。
